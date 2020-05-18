@@ -1,3 +1,9 @@
+## Diary app
+This is my first project which fully designed by me
+Authentication and mobile version will be also added
+
+Text below provided by create-react-app
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
