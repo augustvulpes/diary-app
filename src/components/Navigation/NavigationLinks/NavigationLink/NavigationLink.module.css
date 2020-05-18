@@ -1,0 +1,26 @@
+.NavigationLink {
+    margin: 0;
+    display: flex;
+    height: 100%;
+    width: auto;
+    align-items: center;
+}
+
+.NavigationLink a {
+    transition: 0.3s;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    display: block;
+    font-size: 30px;
+    font-family: 'Fredoka One', sans-serif;
+}
+
+.NavigationLink a:hover,
+.NavigationLink a:active,
+.NavigationLink a.active {
+    text-shadow: 0 0 20px white;
+}
