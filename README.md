@@ -1,5 +1,5 @@
 ## Diary app
-This is my first project which fully designed by me
+This is my first project which fully designed by me <br/>
 Authentication and mobile version will be also added
 
 Text below provided by create-react-app
