@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
+import classes from './Layout.module.css';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 
 class Layout extends Component {
-    satte = {
+    state = {
         showSideDrawer: false
     }
     
@@ -11,7 +12,7 @@ class Layout extends Component {
         return (
             <>
             <Toolbar />
-            <main>
+            <main className={classes.Content}>
                 {this.props.children}
             </main>
             </>

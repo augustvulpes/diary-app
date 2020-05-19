@@ -1,3 +1,29 @@
+.HomeContent {
+    display: flex;
+    align-items: center;
+    margin: 0 30px;
+}
+
 .Description {
-    
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.Description h1 {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 70px;
+    margin: 0;
+}
+
+.Description p {
+    font-family: 'Balsamiq Sans', sans-serif;
+    font-size: 30px;
+    margin: 20px 0;
+}
+
+.Description h2 {
+    font-family: 'Balsamiq Sans', sans-serif;
+    font-size: 50px;
+    margin: 0;
 }
