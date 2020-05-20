@@ -5,14 +5,29 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 
+import newPostReducer from './store/reducers/newPost';
+
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import App from './App';
 
+const composeEnhancers = process.env.NODE_ENV === 'development' ?  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
+
+const rootReducer = combineReducers({
+  newPost: newPostReducer
+});
+
+const store = createStore(rootReducer, composeEnhancers(
+  applyMiddleware(thunk)
+));
+
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root')
 );
+
 serviceWorker.unregister();

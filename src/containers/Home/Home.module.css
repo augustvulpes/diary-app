@@ -1,29 +1,55 @@
 .HomeContent {
-    display: flex;
-    align-items: center;
-    margin: 0 30px;
+    margin: 0 20px;
+    margin-bottom: 40px;
 }
 
 .Description {
     width: 100%;
     text-align: center;
     color: white;
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 .Description h1 {
     font-family: 'Fredoka One', sans-serif;
-    font-size: 70px;
+    font-size: 10vw;
     margin: 0;
 }
 
 .Description p {
     font-family: 'Balsamiq Sans', sans-serif;
-    font-size: 30px;
+    font-size: 4vw;
     margin: 20px 0;
 }
 
 .Description h2 {
     font-family: 'Balsamiq Sans', sans-serif;
-    font-size: 50px;
+    font-size: 6vw;
     margin: 0;
+}
+
+@media (min-width: 1200px) {
+    .HomeContent {
+        display: flex;
+        align-items: center;
+        margin: 0 40px;
+    }
+
+    .Description {
+        margin: 0 20px;
+        width: 100%;
+    }
+
+    .Description h1 {
+        font-size: 70px;
+    }
+
+    .Description p {
+        font-size: 30px;
+    }
+
+    .Description h2 {
+        font-size: 50px;
+    }
 }

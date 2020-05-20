@@ -1,0 +1,1 @@
+export { saveContent, getLocalContent, storeToDatabase } from './newPost';

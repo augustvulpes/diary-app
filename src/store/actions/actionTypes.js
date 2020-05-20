@@ -1,0 +1,4 @@
+export const SAVE_CONTENT = 'SAVE_CONTENT';
+export const GET_LOCAL_CONTENT = 'GET_LOCAL_CONTENT';
+export const STORE_SUCCESS = 'STORE_SUCCESS';
+export const STORE_FAIL = 'STORE_FAIL';
