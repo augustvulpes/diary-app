@@ -21,3 +21,13 @@
     display: flex;
     justify-content: flex-start;
 }
+
+.DesktopOnly {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    .DesktopOnly {
+        display: block;
+    };
+};

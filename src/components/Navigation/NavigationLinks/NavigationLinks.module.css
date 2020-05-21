@@ -3,9 +3,13 @@
     padding: 0;
     list-style: none;
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
     align-items: center;
     height: 100%;
 }
 
-/* Don't forget to change flex-flow for mobile version */
+@media (min-width: 1200px) {
+    .NavigationLinks {
+        flex-flow: row;
+    }
+}
