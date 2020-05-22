@@ -7,16 +7,23 @@ import * as actions from '../../store/actions/index';
 
 class NewPost extends Component {
     // state = {
-    //     title: '',
-    //     postContent: ''
-    // }
+    //     buttonAvailable: false
+    // };
 
     componentDidMount() {
         this.props.getLocalContent();
     };
 
     updateValue = event => {
-        this.props.saveContent(event.target.name, event.target.value)
+        this.props.saveContent(event.target.name, event.target.value);
+    };
+
+    checkButtonStatus = (title, postContent) => {
+        if (!title || !postContent) {
+            return false;
+        } else {
+            return true;
+        };
     };
 
     submitHandler = event => {
@@ -36,7 +43,8 @@ class NewPost extends Component {
                             value={this.props.postContent} 
                             onChange={this.updateValue} />
                     </div>
-                    <Button>Continue</Button>
+                    <Button disabled={!this.checkButtonStatus(this.props.title, this.props.postContent)}>
+                        Continue</Button>
                 </form>
             </div>
         );

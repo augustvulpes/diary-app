@@ -22,6 +22,8 @@ export const getLocalContent = () => {
 };
 
 export const storeSuccess = () => {
+    localStorage.removeItem('title');
+    localStorage.removeItem('postContent');
     alert(1);
     return {
         type: actionTypes.STORE_SUCCESS
@@ -38,7 +40,8 @@ export const storeFail = () => {
 export const storeToDatabase = (title, postContent) => {
     const note = {
         title: title,
-        postContent: postContent
+        postContent: postContent,
+        date: new Date()
     };
     
     return dispatch => {
