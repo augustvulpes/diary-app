@@ -1,0 +1,36 @@
+.DiaryPost {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 40px;
+    max-width: 800px;
+}
+
+.Heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Heading h2 {
+    margin: 0;
+    color: #4ca6ff;
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 30px;
+}
+
+.Heading span {
+    color: #4ca6ff;
+    font-family: 'Balsamiq Sans', sans-serif;
+    font-size: 22px;
+}
+
+.DiaryPost p {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #70b8ff;
+    font-family: 'Balsamiq Sans', sans-serif;
+    font-size: 18px;
+}
