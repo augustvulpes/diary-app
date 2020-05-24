@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 
 import newPostReducer from './store/reducers/newPost';
+import diaryReducer from './store/reducers/diary';
 
 import './index.css';
 import * as serviceWorker from './serviceWorker';
@@ -14,7 +15,8 @@ import App from './App';
 const composeEnhancers = process.env.NODE_ENV === 'development' ?  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
 
 const rootReducer = combineReducers({
-  newPost: newPostReducer
+  newPost: newPostReducer,
+  diary: diaryReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(

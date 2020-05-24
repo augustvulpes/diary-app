@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import classes from './NewPost.module.css';
-import Button from '../../components/UI/Button/Button';
 import * as actions from '../../store/actions/index';
+import Button from '../../components/UI/Button/Button';
 
 class NewPost extends Component {
     // state = {

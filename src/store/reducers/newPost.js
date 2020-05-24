@@ -1,6 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/updateObject';
-import { storeSuccess } from '../actions/newPost';
 
 const initialState = {
     title: '',

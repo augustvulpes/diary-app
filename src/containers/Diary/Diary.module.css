@@ -1,6 +1,19 @@
-.Diary {
+.DiaryList {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 40px;
+    height: 85vh;
+    width: 90vw;
+    overflow: auto;
+}
+
+.Wrapper {
+    max-height: 85vh;
+    width: calc(90vw - 20px);
+    overflow: hidden;
+}
+
+.Diary {
+    display: flex;
+    justify-content: center;
 }

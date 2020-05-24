@@ -3,13 +3,20 @@ import React from 'react';
 import classes from './DiaryPost.module.css';
 
 const diaryPost = props => {
+    let postContent = props.postContent;
+    if (props.postContent.length > 150) {
+        postContent = postContent.slice(0, 150) + '...';
+    };
+    
     return (
         <div className={classes.DiaryPost}>
             <div className={classes.Heading}>
-                <h2>Title</h2>
-                <span>05/23/2020</span>
+                <h2>{props.title}</h2>
+                <span>{props.date}</span>
             </div>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non animi eaque modi voluptas blanditiis, asperiores aut, hic deserunt, nesciunt sapiente illo provident alias qui delectus dolor similique sunt saepe maiores.</p>
+            <div className={classes.PostContent}>
+                <p>{postContent}</p>
+            </div>
         </div>
     );
 };

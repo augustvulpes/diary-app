@@ -22,8 +22,8 @@ export const getLocalContent = () => {
 };
 
 export const storeSuccess = () => {
-    localStorage.removeItem('title');
-    localStorage.removeItem('postContent');
+    localStorage.setItem('title', '');
+    localStorage.setItem('postContent', '');
     alert(1);
     return {
         type: actionTypes.STORE_SUCCESS
