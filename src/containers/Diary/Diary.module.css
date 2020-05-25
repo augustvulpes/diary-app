@@ -8,6 +8,7 @@
 }
 
 .Wrapper {
+    align-items: center;
     max-height: 85vh;
     width: calc(90vw - 20px);
     overflow: hidden;

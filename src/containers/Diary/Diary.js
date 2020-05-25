@@ -23,7 +23,8 @@ class Diary extends Component {
                     return <DiaryPost
                         title={post.title}
                         date={dateString}
-                        postContent={post.postContent} />
+                        postContent={post.postContent}
+                        key={post.id} />
                 });
             };
         };

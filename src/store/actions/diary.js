@@ -34,7 +34,6 @@ export const fetchPosts = () => {
                         id: key
                     });
                 };
-                console.log(res.data);
                 dispatch(fetchPostsSuccess(fetchedPosts));
             })
             .catch(err => {

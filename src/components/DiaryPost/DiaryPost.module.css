@@ -2,30 +2,36 @@
     display: flex;
     flex-direction: column;
     background: white;
-    margin: 20px 0;
+    margin: 10px 0;
     padding: 20px;
     border-radius: 40px;
-    width: 50vw;
+    width: 80vw;
     max-width: 800px;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.DiaryPost:hover {
+    background: rgb(214, 235, 255);
 }
 
 .Heading {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
 }
 
 .Heading h2 {
     margin: 0;
     color: #4ca6ff;
     font-family: 'Fredoka One', sans-serif;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .Heading span {
     color: #4ca6ff;
     font-family: 'Balsamiq Sans', sans-serif;
-    font-size: 22px;
+    font-size: 17px;
 }
 
 .PostContent {
@@ -34,9 +40,34 @@
 }
 
 .DiaryPost p {
-    margin-top: 15px;
+    margin-top: 10px;
     margin-bottom: 5px;
     color: #70b8ff;
     font-family: 'Balsamiq Sans', sans-serif;
-    font-size: 18px;
+    font-size: 17px;
+}
+
+@media (min-width: 1200px) {
+    .Heading {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .Heading h2 {
+        font-size: 30px;
+    }
+
+    .Heading span {
+        font-size: 22px;
+    }
+
+    .DiaryPost p {
+        font-size: 18px;
+    }
+
+    .DiaryPost {
+        margin: 20px 0;
+        width: 50vw;
+    }
 }
