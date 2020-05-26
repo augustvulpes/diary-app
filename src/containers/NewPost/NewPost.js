@@ -6,10 +6,6 @@ import * as actions from '../../store/actions/index';
 import Button from '../../components/UI/Button/Button';
 
 class NewPost extends Component {
-    // state = {
-    //     buttonAvailable: false
-    // };
-
     componentDidMount() {
         this.props.getLocalContent();
     };

@@ -4,7 +4,6 @@ import classes from './Home.module.css';
 import NewPost from '../NewPost/NewPost';
 
 class Home extends Component {
-
     render() {
         return (
             <div className={classes.HomeContent}>

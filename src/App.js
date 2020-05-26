@@ -6,6 +6,7 @@ import './App.css';
 import Layout from './containers/Layout/Layout';
 import Home from './containers/Home/Home';
 import Diary from './containers/Diary/Diary';
+import Auth from './containers/Auth/Auth';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/diary" component={Diary} />
+        <Route path="/signup" component={() => <Auth />} />
         {/* <Redirect to="/" /> */}
       </Switch>
     );

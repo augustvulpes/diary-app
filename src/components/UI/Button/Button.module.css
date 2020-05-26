@@ -22,3 +22,11 @@
     box-shadow: none;
     cursor: default;
 }
+
+.Orange {
+    color: #e67e22;
+}
+
+.Orange:hover {
+    color: #ff851b;
+}
