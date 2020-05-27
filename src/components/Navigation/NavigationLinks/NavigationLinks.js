@@ -9,6 +9,7 @@ const navigationLinks = props => {
             <NavigationLink link="/">Home</NavigationLink>
             <NavigationLink link="/diary">Diary</NavigationLink>
             <NavigationLink link="/signup">Sign up</NavigationLink>
+            <NavigationLink link="/signin">Sign up</NavigationLink>
         </ul>
     );
 };

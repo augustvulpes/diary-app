@@ -23,10 +23,38 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
 }
 
 .Panel form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.Inputs {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.Panel form input {
+    transition: 0.3s;
+    width: 60%;
+    margin: 20px 0;
+    padding: 20px 15px;
+    box-sizing: border-box;
+    font-family: 'Balsamiq Sans', sans-serif;
+    font-size: 30px;
+    color: #1782ec;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 40px;
+    border: none;
+}
+
+.Panel form input:hover,
+.Panel form input:focus {
+    background: white;
 }
