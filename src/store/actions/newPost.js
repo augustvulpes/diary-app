@@ -24,23 +24,23 @@ export const getLocalContent = () => {
 export const storeSuccess = () => {
     localStorage.setItem('title', '');
     localStorage.setItem('postContent', '');
-    alert(1);
     return {
         type: actionTypes.STORE_SUCCESS
     };
 };
 
-export const storeFail = () => {
-    alert(0);
+export const storeFail = (error) => {
     return {
-        type: actionTypes.STORE_FAIL
+        type: actionTypes.STORE_FAIL,
+        error: error
     };
 };
 
-export const storeToDatabase = (title, postContent) => {
+export const storeToDatabase = (title, postContent, userId) => {
     const note = {
         title: title,
         postContent: postContent,
+        userId: userId,
         date: new Date()
     };
     
@@ -50,7 +50,7 @@ export const storeToDatabase = (title, postContent) => {
                 dispatch(storeSuccess());
             })
             .catch(error => {
-                dispatch(storeFail());
+                dispatch(storeFail(error.response.data.error));
             });
     };
 };

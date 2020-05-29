@@ -7,18 +7,33 @@ import Layout from './containers/Layout/Layout';
 import Home from './containers/Home/Home';
 import Diary from './containers/Diary/Diary';
 import Auth from './containers/Auth/Auth';
+import Logout from './containers/Auth/Logout/Logout';
+import * as actions from './store/actions/index';
 
 class App extends Component {
+  componentDidMount() {
+    this.props.onTryAutoSignin();
+  };
+  
   render() {
     let routes = (
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/diary" component={Diary} />
         <Route path="/signup" component={Auth} />
         <Route path="/signin" render={() => <Auth signin />} />
-        <Redirect to="/" />
       </Switch>
     );
+
+    if (this.props.isAuthenticated) {
+      routes = (
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/diary" component={Diary} />
+          <Route path="/logout" component={Logout} />
+          <Redirect to="/" />
+        </Switch>
+      );
+    };
 
     return (
       <div>
@@ -30,4 +45,16 @@ class App extends Component {
   };
 };
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.token !== null
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onTryAutoSignin: () => dispatch(actions.autoSignin())
+  };
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

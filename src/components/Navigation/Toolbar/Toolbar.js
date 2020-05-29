@@ -7,15 +7,17 @@ import Logo from '../../Logo/Logo';
 import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
 
 const toolbar = props => {
+    const classList = [classes.Toolbar];
+    
     return (
-        <header className={classes.Toolbar}>
+        <header className={classList.join(' ')}>
             <DrawerToggle clicked={props.drawerToggleClicked} />
             <div className={classes.Info}>
                 <Logo width="60px" />
                 <div className={classes.DesktopOnly}><NavigationLink link='/info'>Info</NavigationLink></div>
             </div>
             <nav className={classes.DesktopOnly}>
-                <NavigationLinks />
+                <NavigationLinks isAuth={props.isAuth} />
             </nav>
         </header>
     );

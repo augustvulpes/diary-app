@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import classes from './NewPost.module.css';
 import * as actions from '../../store/actions/index';
@@ -24,7 +25,11 @@ class NewPost extends Component {
 
     submitHandler = event => {
         event.preventDefault();
-        this.props.storeToDatabase(this.props.title, this.props.postContent);
+        if (this.props.isAuthenticated) {
+            this.props.storeToDatabase(this.props.title, this.props.postContent, this.props.userId);
+        }else {
+            this.props.history.push('/signup');
+        };
     };
 
     render() {
@@ -50,7 +55,9 @@ class NewPost extends Component {
 const mapStateToProps = state => {
     return {
         title: state.newPost.title,
-        postContent: state.newPost.postContent
+        postContent: state.newPost.postContent,
+        isAuthenticated: state.auth.token !== null,
+        userId: state.auth.userId
     };
 };
 
@@ -58,8 +65,8 @@ const mapDispatchToProps = dispatch => {
     return {
         saveContent: (name, value) => dispatch(actions.saveContent(name, value)),
         getLocalContent: () => dispatch(actions.getLocalContent()),
-        storeToDatabase: (title, postContent) => dispatch(actions.storeToDatabase(title, postContent))
+        storeToDatabase: (title, postContent, userId) => dispatch(actions.storeToDatabase(title, postContent, userId))
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewPost);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NewPost));

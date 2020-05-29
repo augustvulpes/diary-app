@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { NavLink, Redirect } from 'react-router-dom';
 
 import classes from './Auth.module.css';
 import Button from '../../components/UI/Button/Button';
+import Spinner from '../../components/UI/Spinner/Spinner';
 import { updateObject } from '../../shared/updateObject';
+import * as actions from '../../store/actions/index';
 
 class Auth extends Component {
     state = {
@@ -75,6 +78,7 @@ class Auth extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
+        this.props.onAuth(this.state.inputs.email.value, this.state.inputs.password.value, this.props.signin);
     };
 
     render() {
@@ -97,26 +101,58 @@ class Auth extends Component {
             );
         });
 
+        let authRedirect = null;
+        if (this.props.isAuthenticated) {
+            authRedirect = <Redirect to="/" />
+        };
+
+        let content = <Spinner />
+        if (!this.props.loading) {
+            content = (
+                <>
+                    {authRedirect}
+                    <div className={classes.Warning}>
+                        <h1>Please {this.props.signin ? 'sign in' : 'sign up'}<br />
+                            to save this note!</h1>
+                    </div>
+                    <div className={classes.Panel}>
+                        <form onSubmit={this.submitHandler}>
+                            <div className={classes.Inputs}>
+                                {inputs}
+                            </div>
+                            <Button disabled={!this.checkButtonStatus()}>
+                                {this.props.signin ? 'Sign in' : 'Sign up'}</Button>
+                        </form>
+                        <NavLink to={this.props.signin ? '/signup' : '/signin'}>
+                            <Button orange>Switch to {this.props.signin ? 'sign up' : 'sign in'}</Button>
+                        </NavLink>
+                    </div>
+                </>
+            );
+        };
+
         return (
-            <div className={classes.AuthContent}>
-                <div className={classes.Warning}>
-                    <h1>Please {this.props.signin ? 'sign in' : 'sign up'}<br />
-                        to save this note!</h1>
-                </div>
-                <div className={classes.Panel}>
-                    <form onSubmit={this.submitHandler}>
-                        <div className={classes.Inputs}>
-                            {inputs}
-                        </div>
-                        <Button disabled={!this.checkButtonStatus()} >Sign up</Button>
-                    </form>
-                    <NavLink to={this.props.signin ? '/signup' : '/signin'}>
-                        <Button orange>Switch to {this.props.signin ? 'sign up' : 'sign in'}</Button>
-                    </NavLink>
+            <div className={classes.ContentWrapper}>
+                <div className={classes.AuthContent}>
+                    {content}
                 </div>
             </div>
         );
     };
 };
 
-export default Auth;
+const mapStateToProps = state => {
+    return {
+        loading: state.auth.loading,
+        error: state.auth.loading,
+        isAuthenticated: state.auth.token !== null
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onAuth: (email, password, isSignup) => dispatch(actions.auth(email, password, isSignup))
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);

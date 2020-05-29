@@ -3,7 +3,8 @@ import { updateObject } from '../../shared/updateObject';
 
 const initialState = {
     title: '',
-    postContent: ''
+    postContent: '',
+    error: null
 };
 
 const saveContent = (state, action) => {
@@ -19,6 +20,17 @@ const getContent = (state, action) => {
     });
 };
 
+const clearPost = (state) => {
+    return updateObject(state, {
+        title: '',
+        postContent: ''
+    });
+};
+
+const storeErrorInfo = (state, action) => {
+    return updateObject(state, {error: action.error})
+};
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SAVE_CONTENT:
@@ -26,12 +38,9 @@ const reducer = (state = initialState, action) => {
         case actionTypes.GET_LOCAL_CONTENT:
             return getContent(state, action);
         case actionTypes.STORE_SUCCESS:
-            return {
-                title: '',
-                postContent: ''
-            };
+            return clearPost(state);
         case actionTypes.STORE_FAIL:
-            return state;
+            return storeErrorInfo(state, action);
         default:
             return state;
     };
