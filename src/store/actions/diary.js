@@ -22,10 +22,11 @@ export const fetchPostsFail = (error) => {
     };
 };
 
-export const fetchPosts = () => {
+export const fetchPosts = (token, userId) => {
     return dispatch => {
         dispatch(fetchPostsStart());
-        axios.get('./notes.json')
+        const queryParams = '?auth=' + token + '&orderBy="userId"&equalTo="' + userId + '"';
+        axios.get('/notes.json' + queryParams)
             .then(res => {
                 const fetchedPosts = [];
                 for (let key in res.data) {
@@ -39,5 +40,14 @@ export const fetchPosts = () => {
             .catch(err => {
                 dispatch(fetchPostsFail(err));
             });
+    };
+};
+
+export const getNoteContent = (title, postContent, date) => {
+    return {
+        type: actionTypes.GET_NOTE_CONTENT,
+        title: title,
+        postContent: postContent,
+        date: date
     };
 };

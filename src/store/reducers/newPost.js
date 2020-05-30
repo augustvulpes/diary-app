@@ -4,7 +4,13 @@ import { updateObject } from '../../shared/updateObject';
 const initialState = {
     title: '',
     postContent: '',
-    error: null
+    error: null,
+    loading: false,
+    pathToRedirect: null
+};
+
+const startStoreProcess = (state) => {
+    return updateObject(state, {loading: true});
 };
 
 const saveContent = (state, action) => {
@@ -20,16 +26,25 @@ const getContent = (state, action) => {
     });
 };
 
-const clearPost = (state) => {
+const storeSuccess = (state) => {
     return updateObject(state, {
         title: '',
-        postContent: ''
+        postContent: '',
+        loading: false,
+        pathToRedirect: '/diary'
     });
 };
 
 const storeErrorInfo = (state, action) => {
-    return updateObject(state, {error: action.error})
+    return updateObject(state, {
+        error: action.error,
+        loading: false
+    });
 };
+
+const nullifyRedirectPath = (state) => {
+    return updateObject(state, {pathToRedirect: null})
+}
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -37,10 +52,14 @@ const reducer = (state = initialState, action) => {
             return saveContent(state, action);
         case actionTypes.GET_LOCAL_CONTENT:
             return getContent(state, action);
+        case actionTypes.STORE_START:
+            return startStoreProcess(state);
         case actionTypes.STORE_SUCCESS:
-            return clearPost(state);
+            return storeSuccess(state);
         case actionTypes.STORE_FAIL:
             return storeErrorInfo(state, action);
+        case actionTypes.NULLIFY_REDIRECT:
+            return nullifyRedirectPath(state);
         default:
             return state;
     };

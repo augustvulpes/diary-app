@@ -8,7 +8,9 @@ import Home from './containers/Home/Home';
 import Diary from './containers/Diary/Diary';
 import Auth from './containers/Auth/Auth';
 import Logout from './containers/Auth/Logout/Logout';
+import AuthHome from './containers/AuthHome/AuthHome';
 import * as actions from './store/actions/index';
+import OpenedNote from './containers/OpenedNote/OpenedNote';
 
 class App extends Component {
   componentDidMount() {
@@ -27,8 +29,9 @@ class App extends Component {
     if (this.props.isAuthenticated) {
       routes = (
         <Switch>
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact component={AuthHome} />
           <Route path="/diary" component={Diary} />
+          <Route path="/note" component={OpenedNote} />
           <Route path="/logout" component={Logout} />
           <Redirect to="/" />
         </Switch>

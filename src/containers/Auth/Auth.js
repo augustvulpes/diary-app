@@ -103,17 +103,17 @@ class Auth extends Component {
 
         let authRedirect = null;
         if (this.props.isAuthenticated) {
-            authRedirect = <Redirect to="/" />
+            authRedirect = <Redirect to="/" />;
         };
 
-        let content = <Spinner />
+        let content = <Spinner />;
         if (!this.props.loading) {
             content = (
                 <>
                     {authRedirect}
                     <div className={classes.Warning}>
                         <h1>Please {this.props.signin ? 'sign in' : 'sign up'}<br />
-                            to save this note!</h1>
+                            to save your notes!</h1>
                     </div>
                     <div className={classes.Panel}>
                         <form onSubmit={this.submitHandler}>

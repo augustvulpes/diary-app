@@ -14,6 +14,20 @@
     overflow: hidden;
 }
 
+.Warning {
+    margin: 0 40px;
+    margin-top: 150px;
+    text-align: center;
+    color: white;
+    font-family: 'Balsamiq Sans', sans-serif;
+}
+
+.Warning a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Fredoka One', sans-serif;
+}
+
 .Diary {
     display: flex;
     justify-content: center;

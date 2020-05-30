@@ -21,6 +21,12 @@ export const getLocalContent = () => {
     };
 };
 
+export const storeProcessStart = () => {
+    return {
+        type: actionTypes.STORE_START
+    };
+};
+
 export const storeSuccess = () => {
     localStorage.setItem('title', '');
     localStorage.setItem('postContent', '');
@@ -36,7 +42,7 @@ export const storeFail = (error) => {
     };
 };
 
-export const storeToDatabase = (title, postContent, userId) => {
+export const storeToDatabase = (title, postContent, userId, token) => {
     const note = {
         title: title,
         postContent: postContent,
@@ -45,12 +51,19 @@ export const storeToDatabase = (title, postContent, userId) => {
     };
     
     return dispatch => {
-        axios.post('/notes.json', note)
+        dispatch(storeProcessStart());
+        axios.post('/notes.json?auth=' + token, note)
             .then(response => {
                 dispatch(storeSuccess());
             })
             .catch(error => {
-                dispatch(storeFail(error.response.data.error));
+                dispatch(storeFail(error));
             });
+    };
+};
+
+export const nullifyRedirectPath = () => {
+    return {
+        type: actionTypes.NULLIFY_REDIRECT
     };
 };

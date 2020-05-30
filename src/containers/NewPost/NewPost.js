@@ -26,7 +26,7 @@ class NewPost extends Component {
     submitHandler = event => {
         event.preventDefault();
         if (this.props.isAuthenticated) {
-            this.props.storeToDatabase(this.props.title, this.props.postContent, this.props.userId);
+            this.props.storeToDatabase(this.props.title, this.props.postContent, this.props.userId, this.props.token);
         }else {
             this.props.history.push('/signup');
         };
@@ -57,7 +57,8 @@ const mapStateToProps = state => {
         title: state.newPost.title,
         postContent: state.newPost.postContent,
         isAuthenticated: state.auth.token !== null,
-        userId: state.auth.userId
+        userId: state.auth.userId,
+        token: state.auth.token
     };
 };
 
@@ -65,7 +66,7 @@ const mapDispatchToProps = dispatch => {
     return {
         saveContent: (name, value) => dispatch(actions.saveContent(name, value)),
         getLocalContent: () => dispatch(actions.getLocalContent()),
-        storeToDatabase: (title, postContent, userId) => dispatch(actions.storeToDatabase(title, postContent, userId))
+        storeToDatabase: (title, postContent, userId, token) => dispatch(actions.storeToDatabase(title, postContent, userId, token))
     };
 };
 

@@ -5,7 +5,10 @@ import { updateObject } from '../../shared/updateObject';
 const initialState = {
     posts: null,
     error: null,
-    loading: true
+    loading: true,
+    title: '',
+    postContent: '',
+    date: ''
 }
 
 const startFetchingPosts = (state) => {
