@@ -5,7 +5,6 @@ import { withRouter, Redirect } from 'react-router-dom';
 import classes from './AuthHome.module.css';
 import NewPost from '../NewPost/NewPost';
 import Spinner from '../../components/UI/Spinner/Spinner';
-import * as actions from '../../store/actions/index';
 
 
 class AuthHome extends Component {

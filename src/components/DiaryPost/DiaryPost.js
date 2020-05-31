@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 import classes from './DiaryPost.module.css';
 
@@ -10,7 +9,7 @@ const diaryPost = props => {
     };
     
     return (
-        <a onClick={props.clicked} className={classes.DiaryPost}>
+        <div onClick={props.clicked} className={classes.DiaryPost}>
             <div className={classes.Heading}>
                 <h2>{props.title}</h2>
                 <div>
@@ -20,7 +19,7 @@ const diaryPost = props => {
             <div className={classes.PostContent}>
                 <p>{postContent}</p>
             </div>
-        </a>
+        </div>
     );
 };
 

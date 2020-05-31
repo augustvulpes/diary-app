@@ -97,7 +97,7 @@ export const saveChanges = (title, postContent, userId, token, id) => {
             userId: userId,
             date: new Date()
         };
-        const queryParams = id + '.json?' + 'auth=' + token;
+        const queryParams = id + '.json?auth=' + token;
         axios.patch('/notes/' + queryParams, note)
             .then(response => {
                 dispatch(saveChangesSuccess())

@@ -21,7 +21,7 @@ class Info extends Component {
                         <p>Icons provided by <span>icons8.com</span></p>
                     </div>
                 </div>
-                <a href="https://github.com/NOLONHUM/diary-app" target="_blank"><Button>Visit GitHub Page</Button></a>
+                <a href="https://github.com/NOLONHUM/diary-app" rel="noopener noreferrer" target="_blank"><Button>Visit GitHub Page</Button></a>
             </div>
         );
     };
