@@ -8,6 +8,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import newPostReducer from './store/reducers/newPost';
 import diaryReducer from './store/reducers/diary';
 import authReducer from './store/reducers/auth';
+import noteReducer from './store/reducers/note';
 
 import './index.css';
 import * as serviceWorker from './serviceWorker';
@@ -18,7 +19,8 @@ const composeEnhancers = process.env.NODE_ENV === 'development' ?  window.__REDU
 const rootReducer = combineReducers({
   newPost: newPostReducer,
   diary: diaryReducer,
-  auth: authReducer
+  auth: authReducer,
+  note: noteReducer
 });
 
 const store = createStore(rootReducer, composeEnhancers(

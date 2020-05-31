@@ -10,7 +10,7 @@ const diaryPost = props => {
     };
     
     return (
-        <a href="/" className={classes.DiaryPost}>
+        <a onClick={props.clicked} className={classes.DiaryPost}>
             <div className={classes.Heading}>
                 <h2>{props.title}</h2>
                 <div>

@@ -10,6 +10,7 @@
     box-sizing: border-box;
     text-decoration: none;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .DiaryPost:hover {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 import classes from './Diary.module.css';
 import * as actions from '../../store/actions/index';
@@ -21,16 +21,20 @@ class Diary extends Component {
                 posts = <p>{this.props.error.message}</p>;
             } else if (!this.props.posts[0]) {
                 posts = <h1 className={classes.Warning}>It seems like you haven't saved any note for now.<br/>
-                You can do it in <NavLink to="/">New note</NavLink> page!</h1>;
-            }else {
+                You can do it on <NavLink to="/">New note</NavLink> page!</h1>;
+            } else {
                 const postsList = this.props.posts.map(post => {
                     const date = new Date(post.date);
                     const dateString = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
                     return <DiaryPost
                         title={post.title}
-                        date={dateString}
                         postContent={post.postContent}
-                        key={post.id} />
+                        date={dateString}
+                        key={post.id}
+                        clicked={() => {
+                            this.props.getNoteContent(post.title, post.postContent, dateString, post.id);
+                            this.props.history.push('/note');
+                        }} />
                 });
 
                 posts = (
@@ -64,8 +68,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchPosts: (token, userId) => dispatch(actions.fetchPosts(token, userId)),
-        nullifyRedirectPath: () => dispatch(actions.nullifyRedirectPath())
+        nullifyRedirectPath: () => dispatch(actions.nullifyRedirectPath()),
+        getNoteContent: (title, postContent, date, id) => dispatch(actions.getNoteContent(title, postContent, date, id))
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Diary);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Diary));

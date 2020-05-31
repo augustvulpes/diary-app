@@ -1,0 +1,35 @@
+.InfoContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+    font-family: 'Balsamiq Sans', sans-serif;
+}
+
+.InfoContent h1 {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 60px;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.InfoBlock {
+    margin-bottom: 50px;
+}
+
+.Text {
+    margin-top: 30px;
+}
+
+.Text p {
+    font-size: 22px;
+    margin: 15px 0;
+}
+
+.Text span {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 25px;
+}

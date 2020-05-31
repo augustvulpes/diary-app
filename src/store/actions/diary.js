@@ -42,12 +42,3 @@ export const fetchPosts = (token, userId) => {
             });
     };
 };
-
-export const getNoteContent = (title, postContent, date) => {
-    return {
-        type: actionTypes.GET_NOTE_CONTENT,
-        title: title,
-        postContent: postContent,
-        date: date
-    };
-};

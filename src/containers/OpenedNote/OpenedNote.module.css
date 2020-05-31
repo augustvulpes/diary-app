@@ -1,0 +1,161 @@
+.NoteWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.Warning {
+    margin: 0 10px;
+    margin-top: 100px;
+    text-align: center;
+    color: white;
+    font-family: 'Balsamiq Sans', sans-serif;
+}
+
+.Warning a {
+    transition: 0.3s;
+    text-decoration: none;
+    color: white;
+    font-family: 'Fredoka One', sans-serif;
+}
+
+.Warning a:hover {
+    text-shadow: 0 0 30px white;
+}
+
+.Date {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    color: white;
+    font-family: 'Balsamiq Sans', sans-serif;
+    font-size: 25px;
+}
+
+.OpenedNote {
+    width: 100%;
+}
+
+.OpenedNote form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.OpenedNote input {
+    transition: 0.4s;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    font-family: 'Balsamiq Sans', sans-serif;
+    font-size: 25px;
+    color: #1782ec;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    border: none;
+}
+
+.TextareaWrapper {
+    width: calc(100%);
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.OpenedNote textarea {
+    transition: 0.4s;
+    width: calc(100% + 20px);
+    resize: none;
+    height: 500px;
+    padding: 15px;
+    padding-right: 30px;
+    box-sizing: border-box;
+    font-family: 'Balsamiq Sans', sans-serif;
+    font-size: 20px;
+    color: #1782ec;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+}
+
+.Buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    width: auto;
+    height: 220px;
+}
+
+.SmallButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 130px;
+}
+
+.SmallButtons button {
+    transition: 0.3s;
+    background: none;
+    padding: 10px;
+    border: 2px solid #1782ec;
+    border-radius: 30px;
+    color: #1782ec;
+    font-family: 'Balsamiq Sans', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.SmallButtons button:hover {
+    background: #1782ec;
+    color: white;
+}
+
+button.OrangeSmallButton {
+    border: 2px solid #e67e22;
+    color: #e67e22;
+}
+
+button.OrangeSmallButton:hover {
+    background: #e67e22;
+}
+
+.OpenedNote textarea:hover,
+.OpenedNote textarea:focus,
+.OpenedNote input:hover,
+.OpenedNote input:focus {
+    background: white;
+}
+
+@media (min-width: 1200px) {
+    .NoteWrapper {
+        margin: 0 40px;
+    }
+
+    .Warning {
+        margin-top: 150px;
+    }
+
+    .Date {
+        justify-content: end;
+    }
+
+    .OpenedNote {
+        width: 70%;
+    }
+
+    .Buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+    }
+
+    .SmallButtons {
+        flex-direction: row;
+        height: auto;
+    }
+};

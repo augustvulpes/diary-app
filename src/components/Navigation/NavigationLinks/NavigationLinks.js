@@ -9,15 +9,17 @@ const navigationLinks = props => {
             <NavigationLink link="/">Home</NavigationLink>
             <NavigationLink link="/signup">Sign up</NavigationLink>
             <NavigationLink link="/signin">Sign in</NavigationLink>
+            <NavigationLink mobileOnly link="/info">Info</NavigationLink>
         </>
     );
 
     if (props.isAuth) {
         links = (
             <>
-                <NavigationLink link="/note">Note</NavigationLink>
                 <NavigationLink link="/">New note</NavigationLink>
+                <NavigationLink link="/note">Note</NavigationLink>
                 <NavigationLink link="/diary">Diary</NavigationLink>
+                <NavigationLink mobileOnly link="/info">Info</NavigationLink>
                 <NavigationLink link="/logout">Logout</NavigationLink>
             </>
         );

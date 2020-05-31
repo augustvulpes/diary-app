@@ -1,26 +1,32 @@
 import * as actionTypes from '../actions/actionTypes';
-
 import { updateObject } from '../../shared/updateObject';
 
 const initialState = {
     posts: null,
     error: null,
-    loading: true,
-    title: '',
-    postContent: '',
-    date: ''
+    loading: true
 }
 
 const startFetchingPosts = (state) => {
-    return updateObject(state, {loading: true, posts: false, error: false});
+    return updateObject(state, {
+        loading: true, 
+        posts: false, 
+        error: false
+    });
 };
 
 const storeFetchedPosts = (state, action) => {
-    return updateObject(state, {posts: action.posts, loading: false});
+    return updateObject(state, {
+        posts: action.posts, 
+        loading: false
+    });
 };
 
 const storeErrorInfo = (state, action) => {
-    return updateObject(state, {error: action.error, loading: false});
+    return updateObject(state, {
+        error: action.error, 
+        loading: false
+    });
 };
 
 const reducer = (state = initialState, action) => {

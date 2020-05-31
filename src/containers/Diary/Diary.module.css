@@ -23,9 +23,14 @@
 }
 
 .Warning a {
+    transition: 0.3s;
     text-decoration: none;
     color: white;
     font-family: 'Fredoka One', sans-serif;
+}
+
+.Warning a:hover {
+    text-shadow: 0 0 30px white;
 }
 
 .Diary {

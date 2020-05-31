@@ -27,7 +27,7 @@ class NewPost extends Component {
         event.preventDefault();
         if (this.props.isAuthenticated) {
             this.props.storeToDatabase(this.props.title, this.props.postContent, this.props.userId, this.props.token);
-        }else {
+        } else {
             this.props.history.push('/signup');
         };
     };
@@ -45,7 +45,7 @@ class NewPost extends Component {
                             onChange={this.updateValue} />
                     </div>
                     <Button disabled={!this.checkButtonStatus(this.props.title, this.props.postContent)}>
-                        Continue</Button>
+                        {this.props.isAuthenticated ? 'Save' : 'Continue'}</Button>
                 </form>
             </div>
         );
