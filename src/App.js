@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import asyncComponent from './hoc/asyncComponent/asyncComponent';
 
-import './App.css';
 import Layout from './containers/Layout/Layout';
 import Home from './containers/Home/Home';
-import Diary from './containers/Diary/Diary';
 import Auth from './containers/Auth/Auth';
 import Logout from './containers/Auth/Logout/Logout';
-import AuthHome from './containers/AuthHome/AuthHome';
 import Info from './containers/Info/Info';
 import * as actions from './store/actions/index';
-import OpenedNote from './containers/OpenedNote/OpenedNote';
+
+const asyncInfo = asyncComponent(() => {
+  return import('./containers/Info/Info');
+});
+
+const asyncDiary = asyncComponent(() => {
+  return import('./containers/Diary/Diary');
+});
+
+const asyncNote = asyncComponent(() => {
+  return import('./containers/OpenedNote/OpenedNote');
+});
+
+const asyncAuthHome = asyncComponent(() => {
+  return import('./containers/AuthHome/AuthHome');
+});
 
 class App extends Component {
   componentDidMount() {
@@ -32,10 +45,10 @@ class App extends Component {
     if (this.props.isAuthenticated) {
       routes = (
         <Switch>
-          <Route path="/" exact component={AuthHome} />
-          <Route path="/info" component={Info} />
-          <Route path="/diary" component={Diary} />
-          <Route path="/note" component={OpenedNote} />
+          <Route path="/" exact component={asyncAuthHome} />
+          <Route path="/info" component={asyncInfo} />
+          <Route path="/diary" component={asyncDiary} />
+          <Route path="/note" component={asyncNote} />
           <Route path="/logout" component={Logout} />
           <Redirect to="/" />
         </Switch>

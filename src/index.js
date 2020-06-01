@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 
+import './index.css';
 import newPostReducer from './store/reducers/newPost';
 import diaryReducer from './store/reducers/diary';
 import authReducer from './store/reducers/auth';

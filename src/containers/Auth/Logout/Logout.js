@@ -7,6 +7,7 @@ import { Redirect } from 'react-router-dom';
 class Logout extends Component {
     componentDidMount() {
         this.props.onLogout();
+        this.props.clearNoteContent();
     };
 
     render() {
@@ -18,7 +19,8 @@ class Logout extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onLogout: () => dispatch(actions.logout())
+        onLogout: () => dispatch(actions.logout()),
+        clearNoteContent: () => dispatch(actions.clearNoteContent())
     };
 };
 

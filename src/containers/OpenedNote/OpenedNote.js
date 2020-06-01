@@ -4,10 +4,9 @@ import { NavLink } from 'react-router-dom';
 
 import classes from './OpenedNote.module.css';
 import Button from '../../components/UI/Button/Button';
-import Modal from '../../components/UI/Modal/Modal';
+import Shell from '../../components/UI/Shell/Shell';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import * as actions from '../../store/actions/index';
-
 
 class OpenedNote extends Component {
     state = {
@@ -69,23 +68,25 @@ class OpenedNote extends Component {
         };
 
         return (
-            <>
-                <Modal show={this.state.deleting} modalClosed={this.cancelDeleting}>
-                    <h1>Are you really want delete this note?</h1>
-                    <div className={classes.SmallButtons}>
-                        <button onClick={this.cancelDeleting}>No, keep it safe!</button>
-                        <button 
-                            className={classes.OrangeSmallButton}
-                            onClick={() => {
-                                this.props.deleteNote(this.props.id, this.props.token);
-                                this.cancelDeleting();
-                                }}>Yes, delete this</button>
+            <div>
+                <Shell show={this.state.deleting} modalClosed={this.cancelDeleting}>
+                    <div>
+                        <h1>Are you really want delete this note?</h1>
+                        <div className={classes.SmallButtons}>
+                            <button onClick={this.cancelDeleting}>No, keep it safe!</button>
+                            <button 
+                                className={classes.OrangeSmallButton}
+                                onClick={() => {
+                                    this.props.deleteNote(this.props.id, this.props.token);
+                                    this.cancelDeleting();
+                                    }}>Yes, delete this</button>
+                        </div>
                     </div>
-                </Modal>
+                </Shell>
                 <div className={classes.NoteWrapper}>
                     {content}
                 </div>
-            </>
+            </div>
         );
     };
 };

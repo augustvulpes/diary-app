@@ -3,8 +3,8 @@ import axios from '../../axios-orders';
 import * as actionTypes from './actionTypes';
 
 export const getNoteContent = (title, postContent, date, id) => {
-    localStorage.setItem('openedNoteTitle', title);
-    localStorage.setItem('openedNotePostContent', postContent);
+    localStorage.setItem('openedNotetitle', title);
+    localStorage.setItem('openedNotepostContent', postContent);
     localStorage.setItem('openedNoteDate', date);
     localStorage.setItem('openedNoteId', id);
     return {
@@ -26,8 +26,8 @@ export const changeNoteContent = (name, value) => {
 };
 
 export const retrieveStoredNote = () => {
-    const title = localStorage.getItem('openedNoteTitle');
-    const postContent = localStorage.getItem('openedNotePostContent');
+    const title = localStorage.getItem('openedNotetitle');
+    const postContent = localStorage.getItem('openedNotepostContent');
     const date = localStorage.getItem('openedNoteDate');
     const id = localStorage.getItem('openedNoteId');
     return {
@@ -40,8 +40,8 @@ export const retrieveStoredNote = () => {
 };
 
 export const deleteSuccess = () => {
-    localStorage.removeItem('openedNoteTitle');
-    localStorage.removeItem('openedNotePostContent');
+    localStorage.removeItem('openedNotetitle');
+    localStorage.removeItem('openedNotepostContent');
     localStorage.removeItem('openedNoteDate');
     localStorage.removeItem('openedNoteId');
     return {
@@ -105,5 +105,15 @@ export const saveChanges = (title, postContent, userId, token, id) => {
             .catch(error => {
                 dispatch(saveChangesFail(error))
             })
+    };
+};
+
+export const clearNoteContent = () => {
+    localStorage.removeItem('openedNotetitle');
+    localStorage.removeItem('openedNotepostContent');
+    localStorage.removeItem('openedNoteDate');
+    localStorage.removeItem('openedNoteId');
+    return {
+        type: actionTypes.CLEAR_NOTE_CONTENT
     };
 };

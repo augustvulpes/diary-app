@@ -35,6 +35,14 @@
     .NavigationLink a {
         height: 100%;
         padding: 12px 10px;
+        transition: 0.3s;
+        text-decoration: none;
+        color: white;
+        width: 100%;
+        box-sizing: border-box;
+        display: block;
+        font-size: 35px;
+        font-family: 'Fredoka One', sans-serif;
     }
 
     .MobileOnly {

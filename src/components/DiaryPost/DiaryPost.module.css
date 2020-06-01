@@ -50,25 +50,45 @@
 
 @media (min-width: 1200px) {
     .Heading {
+        display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
     }
 
     .Heading h2 {
+        margin: 0;
+        color: #4ca6ff;
+        font-family: 'Fredoka One', sans-serif;
         font-size: 30px;
     }
 
     .Heading span {
+        color: #4ca6ff;
+        font-family: 'Balsamiq Sans', sans-serif;
         font-size: 22px;
     }
 
     .DiaryPost p {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        color: #70b8ff;
+        font-family: 'Balsamiq Sans', sans-serif;
         font-size: 18px;
     }
 
     .DiaryPost {
         margin: 20px 0;
         width: 50vw;
+        display: flex;
+        flex-direction: column;
+        background: white;
+        padding: 20px;
+        border-radius: 40px;
+        max-width: 800px;
+        box-sizing: border-box;
+        text-decoration: none;
+        transition: 0.3s;
+        cursor: pointer;
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './NavigationLinks.module.css';
+import './NavigationLinks.css';
 import NavigationLink from './NavigationLink/NavigationLink';
 
 const navigationLinks = props => {
@@ -26,7 +26,7 @@ const navigationLinks = props => {
     };
     
     return (
-        <ul className={classes.NavigationLinks}>
+        <ul className='NavigationLinks'>
             {links}
         </ul>
     );

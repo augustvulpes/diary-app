@@ -71,13 +71,28 @@
     .AuthContent {
         flex-direction: row;
         margin: 0 40px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
     }
 
     .Warning h1 {
         font-size: 70px;
+        font-family: 'Fredoka One', sans-serif;
+        margin: 0;
     }
 
     .Panel form input {
         width: 60%;
+        transition: 0.3s;
+        margin: 20px 0;
+        padding: 20px 15px;
+        box-sizing: border-box;
+        font-family: 'Balsamiq Sans', sans-serif;
+        font-size: 30px;
+        color: #1782ec;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 40px;
+        border: none;
     }
 }

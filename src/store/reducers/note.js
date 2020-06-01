@@ -64,6 +64,15 @@ const storeChangesFail = (state, action) => {
     });
 };
 
+const clearNoteContent = (state) => {
+    return updateObject(state, {
+        title: '',
+        postContent: '',
+        date: '',
+        id: null
+    });
+};
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.GET_NOTE_CONTENT:
@@ -82,6 +91,8 @@ const reducer = (state = initialState, action) => {
             return storeChangesSuccess(state);
         case actionTypes.STORE_CHANGES_FAIL:
             return storeChangesFail(state, action);
+        case actionTypes.CLEAR_NOTE_CONTENT:
+            return clearNoteContent(state);
         default:
             return state;
     };

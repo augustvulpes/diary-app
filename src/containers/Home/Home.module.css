@@ -39,17 +39,26 @@
     .Description {
         margin: 0 20px;
         width: 100%;
+        text-align: center;
+        color: white;
+        box-sizing: border-box;
     }
 
     .Description h1 {
         font-size: 70px;
+        font-family: 'Fredoka One', sans-serif;
+        margin: 0;
     }
 
     .Description p {
         font-size: 30px;
+        font-family: 'Balsamiq Sans', sans-serif;
+        margin: 20px 0;
     }
 
     .Description h2 {
         font-size: 50px;
+        font-family: 'Balsamiq Sans', sans-serif;
+        margin: 0;
     }
 }
