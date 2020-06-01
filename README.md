@@ -1,6 +1,6 @@
 ## Diary app
 This is my first project which fully designed by me <br/>
-Authentication and mobile version will be also added
+You view the result here: https://diary-app-cb024.firebaseapp.com/
 
 Text below provided by create-react-app
 
