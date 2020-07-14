@@ -25,7 +25,7 @@ class Diary extends Component {
             } else {
                 const postsList = this.props.posts.map(post => {
                     const date = new Date(post.date);
-                    const dateString = date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear();
+                    const dateString = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
                     return <DiaryPost
                         title={post.title}
                         postContent={post.postContent}
